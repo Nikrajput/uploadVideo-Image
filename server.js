@@ -8,7 +8,6 @@ const app=express()
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
-
 app.use('/',upload.single("video"),async(req,res) => {
     console.log(req.file.path);
     const result=await cloudinary.uploader.upload(req.file.path,{
